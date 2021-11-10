@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <Box sx={{ position: 'absolute', bottom: 0, backgroundColor: '#1c1d1f', width: '100%', textAlign: 'center', color: 'white' }}>
+        <Box sx={{ position: 'absolute', bottom: 0, backgroundColor: '#1c1d1f', width: '100%', textAlign: 'center', color: 'white', mt: 20 }}>
             <Typography sx={{ fontStyle: 'italic', my: 1 }}>
                 Get a bicycle. You will not regret it, if you live. But SAFETY should always first priority. Maintain Safety, Enjoy Ride, Live Healthy.
             </Typography>
