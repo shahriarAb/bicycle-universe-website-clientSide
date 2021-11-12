@@ -12,6 +12,7 @@ import AuthProvider from './Context/AuthProvider';
 import AllCollection from './Pages/AllCollection/AllCollection';
 import BicycleDetails from './Pages/BicycleDetails/BicycleDetails';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <PrivateRoute path="/bicycle/:id">
               <BicycleDetails />
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
             </PrivateRoute>
             <Route path="/login">
               <Login />

@@ -19,8 +19,8 @@ const style = {
     p: 4,
 };
 
-const PurchaseModal = ({ bicycle, open, handleClose }) => {
-    const { user } = useAuth();
+const PurchaseModal = ({ bicycle, open, handleClose, setOrderSuccess }) => {
+    const { user } = useAuth()
 
     const initialInfo = { customerName: user.displayName, email: user.email, address: '', phone: '' }
     const [purchaseInfo, setPurchaseInfo] = React.useState(initialInfo);
@@ -29,9 +29,32 @@ const PurchaseModal = ({ bicycle, open, handleClose }) => {
         const field = e.target.name;
         const value = e.target.value;
         const newInfo = { ...purchaseInfo };
-        purchaseInfo[field] = value;
-        console.log(purchaseInfo);
+        newInfo[field] = value;
         setPurchaseInfo(newInfo);
+    }
+
+    const handleOrderSubmit = e => {
+        const bookings = {
+            ...purchaseInfo,
+            orderName: bicycle.name,
+            price: bicycle.price,
+            date: new Date().toLocaleDateString()
+        }
+        fetch('http://localhost:5500/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookings)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    setOrderSuccess(true);
+                    handleClose();
+                }
+            });
+        e.preventDefault();
     }
 
     return (
@@ -55,7 +78,7 @@ const PurchaseModal = ({ bicycle, open, handleClose }) => {
                         Price: BDT<span style={{ color: '#ff6600', fontWeight: 700 }}>{bicycle.price}</span>/- only.
                     </Typography>
 
-                    <form>
+                    <form onSubmit={handleOrderSubmit}>
                         <TextField
                             sx={{ mt: 2, width: '100%' }}
                             id="outlined-textarea"

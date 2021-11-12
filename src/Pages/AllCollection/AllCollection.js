@@ -3,6 +3,8 @@ import { Button, CircularProgress, Container, Grid, Typography } from '@mui/mate
 import Bicycle from '../Home/Bicycles/Bicycle/Bicycle';
 import { Box } from '@mui/system';
 import { useHistory } from 'react-router';
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const AllCollection = () => {
     const [bicycles, setBicycles] = useState([]);
@@ -32,7 +34,8 @@ const AllCollection = () => {
         );
     }
     return (
-        <div>
+        <div className="App">
+            <Header />
             <Container sx={{ mt: 3 }}>
                 <Typography sx={{ mb: 5, fontWeight: 700, color: '#ffa600', textAlign: 'left' }} variant="h4">
                     Our Full Collection
@@ -48,6 +51,7 @@ const AllCollection = () => {
                     }
                 </Grid>
             </Container>
+            <Footer />
         </div>
     );
 };

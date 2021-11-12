@@ -32,7 +32,7 @@ const Bicycle = props => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={handleDetails} sx={{ px: 6, fontWeight: 700 }} variant="contained" color="warning">Details</Button>
+                    <Button onClick={handleDetails} sx={{ px: 6, fontWeight: 700 }} variant="contained" color="warning">Buy Now</Button>
                     {props.children}
                 </CardActions>
             </Card>

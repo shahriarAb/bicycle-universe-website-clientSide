@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import PurchaseModal from '../PurchaseModal/PurchaseModal';
+import Header from '../Shared/Header/Header';
 
 const BicycleDetails = () => {
     const { id } = useParams();
@@ -17,6 +18,7 @@ const BicycleDetails = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [orderSuccess, setOrderSuccess] = React.useState(false);
 
     useEffect(() => {
         setIsLoading(true)
@@ -37,37 +39,45 @@ const BicycleDetails = () => {
         );
     }
     return (
-        <Box sx={{ my: 3, display: 'flex', justifyContent: 'center' }}>
-            <Card sx={{ maxWidth: '45%', boxShadow: 4 }}>
-                <CardMedia
-                    component="img"
-                    alt="green iguana"
-                    width="100%"
-                    image={bicycle.img}
-                />
-                <CardContent>
-                    <Typography sx={{ fontWeight: 700 }} gutterBottom variant="h5" component="div">
-                        {bicycle.name}
-                    </Typography>
-                    <Typography variant="body">
-                        {bicycle.description}
-                    </Typography>
-                </CardContent>
-                <CardActions sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-                    <Button
-                        onClick={handleOpen}
-                        sx={{ px: 4, fontWeight: 600 }}
-                        variant="contained"
-                        color="warning"
-                    ><i className="fab fa-opencart"></i> Purchase Now</Button>
-                </CardActions>
-            </Card>
-            <PurchaseModal
-                bicycle={bicycle}
-                open={open}
-                handleClose={handleClose}
-            ></PurchaseModal>
-        </Box>
+        <div>
+            <Header />
+            <Box sx={{ mt: 11, mb: 3, display: 'flex', justifyContent: 'center' }}>
+                <Card sx={{ maxWidth: '45%', boxShadow: 4 }}>
+                    <CardMedia
+                        component="img"
+                        alt="green iguana"
+                        width="100%"
+                        image={bicycle.img}
+                    />
+                    {orderSuccess && <Alert sx={{ mt: 2, display: 'flex', justifyContent: 'center' }} severity="success">
+                        <AlertTitle>Success</AlertTitle>
+                        Your order has been successfully recieved.
+                    </Alert>}
+                    <CardContent>
+                        <Typography sx={{ fontWeight: 700 }} gutterBottom variant="h5" component="div">
+                            {bicycle.name}
+                        </Typography>
+                        <Typography variant="body">
+                            {bicycle.description}
+                        </Typography>
+                    </CardContent>
+                    <CardActions sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                        <Button
+                            onClick={handleOpen}
+                            sx={{ px: 4, fontWeight: 600 }}
+                            variant="contained"
+                            color="warning"
+                        ><i className="fab fa-opencart"></i> Purchase Now</Button>
+                    </CardActions>
+                </Card>
+                <PurchaseModal
+                    bicycle={bicycle}
+                    open={open}
+                    handleClose={handleClose}
+                    setOrderSuccess={setOrderSuccess}
+                ></PurchaseModal>
+            </Box>
+        </div>
     );
 };
 

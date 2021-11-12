@@ -4,7 +4,7 @@ import React from 'react';
 
 const Newsletter = () => {
     return (
-        <Grid container spacing={1} sx={{ backgroundColor: '#333836', mt: 40, py: 4, pl: 10 }}>
+        <Grid container spacing={1} sx={{ backgroundColor: '#333836', mt: 20, py: 4, pl: 10 }}>
             <Grid item sx={{ color: 'white' }} xs={12} md={6}>
                 <Box sx={{ display: 'flex' }}>
                     <Box>
@@ -15,7 +15,7 @@ const Newsletter = () => {
                             Sign Up For Newsletter
                         </Typography>
                         <Typography variant="p">
-                            Signup Our newsletter And get latest updates!
+                            Signup Our newsletter And get latest updates...
                         </Typography>
                     </Box>
                 </Box>

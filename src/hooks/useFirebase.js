@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
-
 initializeAuthentication();
 
 const useFirebase = () => {
@@ -20,6 +19,8 @@ const useFirebase = () => {
             .then(() => {
                 const newUser = { email, displayName: userName }
                 setuser(newUser);
+                //add user to database
+                addUserToDB(userName, email, 'POST');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
@@ -59,10 +60,12 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // const user = result.user;
+                const user = result.user;
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
+                //add user to db
+                addUserToDB(user.displayName, user.email, 'PUT');
             }).catch((error) => {
                 setAuthError(error.message);
             })
@@ -92,6 +95,19 @@ const useFirebase = () => {
                 setAuthError(error.message);
             })
             .finally(() => setIsLoading(false));
+    }
+
+    //add all user to database
+    const addUserToDB = (displayName, email, method) => {
+        const user = { displayName, email }
+        fetch('http://localhost:5500/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
 
     return {

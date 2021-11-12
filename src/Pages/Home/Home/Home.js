@@ -7,6 +7,7 @@ import Bicycles from '../Bicycles/Bicycles';
 import Features from '../Features/Features';
 import Newsletter from '../Newsletter/Newsletter';
 import Slider from '../Slider/Slider';
+import UserReview from '../UserReview/UserReview';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <Slider />
             <Features />
             <Bicycles />
+            <UserReview />
             <Newsletter />
             <Footer />
         </Box>

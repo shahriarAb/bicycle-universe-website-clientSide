@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Button, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Bicycle from './Bicycle/Bicycle';
 import { Box } from '@mui/system';
+import { NavLink } from 'react-router-dom';
 
 const Bicycles = () => {
     const [bicycles, setBicycles] = useState([]);
@@ -43,6 +44,9 @@ const Bicycles = () => {
                     ></Bicycle>)
                 }
             </Grid>
+            <NavLink to="/allCollection">
+                <Button sx={{ fontSize: '16px', fontWeight: 700, mt: 2 }} variant="text">See More Bicycles &gt;&gt;</Button>
+            </NavLink>
         </Container>
     );
 };
