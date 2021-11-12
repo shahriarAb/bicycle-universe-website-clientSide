@@ -9,6 +9,9 @@ import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login/Login';
 import Signup from './Pages/Login/Signup/Signup';
 import AuthProvider from './Context/AuthProvider';
+import AllCollection from './Pages/AllCollection/AllCollection';
+import BicycleDetails from './Pages/BicycleDetails/BicycleDetails';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -22,6 +25,12 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
+            <Route path="/allCollection">
+              <AllCollection />
+            </Route>
+            <PrivateRoute path="/bicycle/:id">
+              <BicycleDetails />
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>

@@ -36,7 +36,7 @@ const Signup = () => {
         <Container>
             <Grid container spacing={2}>
                 <Grid sx={{ display: 'flex', alignItems: 'center' }} item xs={12} md={6}>
-                    <Box sx={{ boxShadow: 4, borderRadius: 1, py: 6 }}>
+                    <Box sx={{ boxShadow: 4, borderRadius: 1, py: 5 }}>
                         <form onSubmit={handleRegisterSubmit}>
                             <Typography sx={{ fontWeight: 600 }} variant="h5" color="info.main">
                                 Create An Account(Register)

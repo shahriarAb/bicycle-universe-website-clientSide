@@ -26,7 +26,7 @@ const Header = () => {
     };
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" style={{ backgroundColor: '#263238' }}>
+            <AppBar position="fixed" style={{ backgroundColor: '#263238' }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -47,6 +47,7 @@ const Header = () => {
                         </Box>
                     </Box>
                     <div>
+                        <NavLink style={{ color: 'white', textDecoration: 'none', marginRight: '25px' }} to="/allCollection">All Collections</NavLink>
                         {
                             !user.email ?
                                 <NavLink style={{ color: 'white', textDecoration: 'none' }} to="/login"><Button variant="outlined" color="inherit">Login</Button></NavLink>

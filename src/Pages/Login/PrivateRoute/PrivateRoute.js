@@ -7,10 +7,12 @@ import useAuth from '../../../hooks/useAuth';
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
     if (isLoading) {
-        <Box sx={{ top: '20%' }}>
-            <CircularProgress />
-            <h5>Loading...</h5>
-        </Box>
+        return (
+            <Box sx={{ mt: 7 }}>
+                <CircularProgress />
+                <h5>Loading...</h5>
+            </Box>
+        );
     }
     return (
         <Route
