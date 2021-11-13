@@ -32,7 +32,7 @@ const Login = () => {
             <Grid container spacing={2}>
                 <Grid sx={{ display: 'flex', alignItems: 'center' }} item xs={12} md={6}>
                     <Box sx={{ boxShadow: 4, borderRadius: 1, py: 11 }}>
-                        <form onClick={handleLoginSubmit}>
+                        <form onSubmit={handleLoginSubmit}>
                             <Typography sx={{ fontWeight: 700 }} variant="h5" color="info.main">
                                 Login
                             </Typography>

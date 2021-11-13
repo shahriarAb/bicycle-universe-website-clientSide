@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5500/orders')
+        fetch('https://salty-headland-52267.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 setAllOrders(data)
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
     }, []);
 
     const handleUpdateStatus = id => {
-        fetch(`http://localhost:5500/orders/${id}`, {
+        fetch(`https://salty-headland-52267.herokuapp.com/orders/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -33,19 +33,20 @@ const ManageAllOrders = () => {
                     alert('Status updated successfully.');
                     window.location.reload();
                 }
-            })
+            });
+
     }
 
     const handleDelete = id => {
-        const confirmation = window.confirm('Are you sure cancel this order?');
+        const confirmation = window.confirm('Are you sure delete this order?');
         if (confirmation) {
-            fetch(`http://localhost:5500/orders/${id}`, {
+            fetch(`https://salty-headland-52267.herokuapp.com/orders/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
                 .then(result => {
                     if (result.deletedCount) {
-                        alert('Successfully canceled this order');
+                        alert('Successfully deleted this order');
                         const remainingOrders = allOrders.filter(myOrder => myOrder._id !== id);
                         setAllOrders(remainingOrders);
                     }

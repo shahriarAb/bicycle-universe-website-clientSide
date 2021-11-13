@@ -22,7 +22,7 @@ const BicycleDetails = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:5500/bicycle/${id}`)
+        fetch(`https://salty-headland-52267.herokuapp.com/bicycle/${id}`)
             .then(res => res.json())
             .then(data => {
                 setIsLoading(false);

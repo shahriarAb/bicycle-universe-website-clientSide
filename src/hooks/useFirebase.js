@@ -89,7 +89,7 @@ const useFirebase = () => {
 
     //verify if user is admin or not
     useEffect(() => {
-        fetch(`http://localhost:5500/users/${user.email}`)
+        fetch(`https://salty-headland-52267.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin));
     }, [user.email]);
@@ -110,7 +110,7 @@ const useFirebase = () => {
     //add all user to database
     const addUserToDB = (displayName, email, method) => {
         const user = { displayName, email }
-        fetch('http://localhost:5500/users', {
+        fetch('https://salty-headland-52267.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

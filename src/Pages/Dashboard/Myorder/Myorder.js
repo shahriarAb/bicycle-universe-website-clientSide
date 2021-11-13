@@ -14,7 +14,7 @@ const Myorder = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5500/myOrders?email=${user.email}`)
+        fetch(`https://salty-headland-52267.herokuapp.com/myOrders?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data);
@@ -25,7 +25,7 @@ const Myorder = () => {
     const handleDelete = (id) => {
         const confirmation = window.confirm('Are you sure cancel this order?');
         if (confirmation) {
-            fetch(`http://localhost:5500/orders/${id}`, {
+            fetch(`https://salty-headland-52267.herokuapp.com/orders/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

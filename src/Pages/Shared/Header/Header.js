@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import logo from './../../../images/logo.png';
 import useAuth from '../../../hooks/useAuth';
+import './Header.css';
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,13 +39,15 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
-                        <img style={{ width: 65 }} src={logo} alt="dental logo" />
-                        <Box>
-                            <Typography sx={{ mt: 1, ml: 3 }} variant="h5" component="div">
-                                Bicycle Universe
-                            </Typography>
-                            <small style={{ marginLeft: '55px' }}>Your Bicycle KINGDOM</small>
-                        </Box>
+                        <img style={{ width: 65 }} src={logo} alt="logo" />
+                        <div className="titleLogo">
+                            <Box>
+                                <Typography sx={{ mt: 1, ml: 3 }} variant="h5" component="div">
+                                    Bicycle Universe
+                                </Typography>
+                                <small style={{ marginLeft: '55px' }}>Your Bicycle KINGDOM</small>
+                            </Box>
+                        </div>
                     </Box>
                     <Box style={{ display: 'flex', alignItems: 'center' }}>
                         <Link style={{ color: 'white', textDecoration: 'none', marginRight: '25px' }} to="/allCollection">All Collections</Link>

@@ -13,7 +13,7 @@ const AllCollection = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:5500/bicycles')
+        fetch('https://salty-headland-52267.herokuapp.com/bicycles')
             .then(res => res.json())
             .then(data => {
                 setBicycles(data);

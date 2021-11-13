@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5500/bicycles')
+        fetch('https://salty-headland-52267.herokuapp.com/bicycles')
             .then(res => res.json())
             .then(data => {
                 setAllProduct(data);
@@ -18,7 +18,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const confirmation = window.confirm('Are you sure want to delete this product?');
         if (confirmation) {
-            fetch(`http://localhost:5500/bicycles/${id}`, {
+            fetch(`https://salty-headland-52267.herokuapp.com/bicycles/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

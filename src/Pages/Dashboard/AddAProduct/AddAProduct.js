@@ -15,7 +15,7 @@ const AddAProduct = () => {
     }
 
     const handleOnSubmit = e => {
-        fetch('http://localhost:5500/bicycles', {
+        fetch('https://salty-headland-52267.herokuapp.com/bicycles', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

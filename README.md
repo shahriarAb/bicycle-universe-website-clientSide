@@ -1,16 +1,18 @@
 # Welcome to Bicycle Universe - your bicycle KINGDOM
 ## This is a bicycle sell and explore related website made on demand. To explore more read the description below.
 
-To enjoy live view of this project go to [this link](https://crazy-traveler.web.app/).
+To enjoy live view of this project go to [this link](https://bicycle-universe-a0bea.web.app/).
 
 ## About this website
 
 ### This is a website of Bicycle Universe. You can see different types of bicycles with prize. You can also see -
-- Top notch destinatons with exclusive packages .
-- More details about this destinations and packages.
-- Purchase/Book a place.
-- All your selected places will be seen on my orders page. 
-- Also see all selected places by every user and maintain this.
-- On manage all users admin can approve or delete any bookings.
-- Google authentication is used here if you're not logged in you cannot see detailas and other managable routes.
-- On home page you notice several sections.
+- On home page you will see a navigation, footer,  banner, a slider and some featured things.
+- You also see top graded six bicycles on home page.
+- You see more bicycles on the all collection page by clicking see more bicycles button also can go this route from allCollection from navigation .
+- From a card you can order a bicycles by giving necessary information. 
+- On dash board you can go three different route called payment, myorders and write a review.
+- On here i used nested routes to go there pages.
+- You can manage your order also post a review of this which can be seen dynamically on home page review section.
+- An admin can see different routs which is not available on a client page.
+- Admin can make a new admin, manage all product, all orders, and also can update a products status which is dynamically updated on clients pages.
+- Firebase authentication is used here. New user can use every routes by register or can be used by google sign in.

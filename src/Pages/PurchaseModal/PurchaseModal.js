@@ -41,7 +41,7 @@ const PurchaseModal = ({ bicycle, open, handleClose, setOrderSuccess }) => {
             date: new Date().toLocaleDateString(),
             status: 'Pending'
         }
-        fetch('http://localhost:5500/orders', {
+        fetch('https://salty-headland-52267.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
