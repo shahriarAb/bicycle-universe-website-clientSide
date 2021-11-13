@@ -5,8 +5,9 @@ import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPas
 initializeAuthentication();
 
 const useFirebase = () => {
-    const [user, setuser] = useState({});
+    const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
@@ -18,7 +19,7 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 const newUser = { email, displayName: userName }
-                setuser(newUser);
+                setUser(newUser);
                 //add user to database
                 addUserToDB(userName, email, 'POST');
                 const destination = location?.state?.from || '/';
@@ -74,22 +75,31 @@ const useFirebase = () => {
 
     //user state observer
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
-                setuser(user);
-            } else {
-                setuser({});
+                setUser(user);
+            }
+            else {
+                setUser({});
             }
             setIsLoading(false);
         });
         return () => unsubscribe;
     }, [auth]);
 
+    //verify if user is admin or not
+    useEffect(() => {
+        fetch(`http://localhost:5500/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin));
+    }, [user.email]);
+
     //logout user
     const logOut = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
             setAuthError('');
+            setUser({});
         })
             .catch((error) => {
                 setAuthError(error.message);
@@ -112,6 +122,7 @@ const useFirebase = () => {
 
     return {
         user,
+        admin,
         authError,
         setAuthError,
         signInWithGoogle,

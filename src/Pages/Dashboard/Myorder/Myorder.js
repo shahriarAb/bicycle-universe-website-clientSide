@@ -85,6 +85,14 @@ const Myorder = () => {
                                             <Typography variant="body2">
                                                 Order Date: {myOrder.date}
                                             </Typography>
+                                            <Typography variant="body" component="div">
+                                                Stauts: {
+                                                    myOrder.status === 'Shipped' ?
+                                                        <span style={{ backgroundColor: 'green', color: 'white', padding: '3px 8px', borderRadius: '5px' }}>Shipped</span>
+                                                        :
+                                                        <span style={{ backgroundColor: 'red', color: 'white', padding: '3px 8px', borderRadius: '5px' }}>Pending</span>
+                                                }
+                                            </Typography>
                                         </CardContent>
                                         <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
                                             <Button size="small" variant="contained" color="warning">Track Order</Button>

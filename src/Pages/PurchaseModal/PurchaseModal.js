@@ -38,7 +38,8 @@ const PurchaseModal = ({ bicycle, open, handleClose, setOrderSuccess }) => {
             ...purchaseInfo,
             orderName: bicycle.name,
             price: bicycle.price,
-            date: new Date().toLocaleDateString()
+            date: new Date().toLocaleDateString(),
+            status: 'Pending'
         }
         fetch('http://localhost:5500/orders', {
             method: 'POST',

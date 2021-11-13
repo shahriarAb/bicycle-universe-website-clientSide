@@ -22,12 +22,17 @@ import Payment from '../Payment/Payment';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Myorder from '../Myorder/Myorder';
 import Review from '../Review/Review';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import AddAProduct from '../AddAProduct/AddAProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 250;
 
 const Dashboard = (props) => {
     const { window } = props;
-    const { logOut } = useAuth();
+    const { admin, logOut } = useAuth();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
 
@@ -41,10 +46,24 @@ const Dashboard = (props) => {
             <Divider />
             <List>
                 <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left', ml: 4, mb: 10 }}>
-                    <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="far fa-list-alt"></i> Dashboard</Button></NavLink>
-                    <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/payment`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="far fa-credit-card"></i> Payment</Button></NavLink>
-                    <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/myOrders`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-shopping-bag"></i> My Orders</Button></NavLink>
-                    <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/review`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-star-half-alt"></i> Write a Review</Button></NavLink>
+                    {
+                        !admin ?
+                            <Box>
+                                <Typography sx={{ textAlign: 'center' }}>Role: <span style={{ color: '#ffa600', fontWeight: 700 }}>Client/Visitor</span></Typography>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="far fa-list-alt"></i> Dashboard</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/payment`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="far fa-credit-card"></i> Payment</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/myOrders`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-shopping-bag"></i> My Orders</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/review`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-star-half-alt"></i> Write a Review</Button></NavLink>
+                            </Box>
+                            :
+                            <Box>
+                                <Typography sx={{ textAlign: 'center' }}>Role: <span style={{ color: '#b80000', fontWeight: 700 }}>Admin</span></Typography>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/manageAllOrders`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-cogs"></i> Manage All Orders</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/addAProduct`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="far fa-plus-square"></i> Add A Product</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/makeAdmin`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-user-cog"></i> Make Admin</Button></NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to={`${url}/manageProducts`}><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-sliders-h"></i> Manage Products</Button></NavLink>
+                            </Box>
+                    }
                 </Box>
                 <Divider />
                 <NavLink style={{ color: 'black', textDecoration: 'none' }} to="/Home"><Button sx={{ fontWeight: 700 }} color="inherit"><i style={{ marginRight: '10px' }} className="fas fa-house-user"></i> Home</Button></NavLink>
@@ -132,6 +151,18 @@ const Dashboard = (props) => {
                     <Route exact path={`${path}/review`}>
                         <Review></Review>
                     </Route>
+                    <AdminRoute exact path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manageAllOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/addAProduct`}>
+                        <AddAProduct></AddAProduct>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>
