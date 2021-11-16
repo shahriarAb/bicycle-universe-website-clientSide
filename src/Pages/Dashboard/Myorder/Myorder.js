@@ -11,6 +11,7 @@ const Myorder = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    document.title = "My Orders - Bicycle Universe"
 
     useEffect(() => {
         setIsLoading(true);

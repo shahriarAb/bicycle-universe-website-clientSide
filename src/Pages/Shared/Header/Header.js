@@ -9,7 +9,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from './../../../images/logo.png';
 import useAuth from '../../../hooks/useAuth';
 import './Header.css';
@@ -17,6 +17,11 @@ import './Header.css';
 const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const { user, logOut } = useAuth();
+    const history = useHistory();
+
+    const handleGoToHome = () => {
+        history.push('/')
+    }
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -39,7 +44,7 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
-                        <img style={{ width: 65 }} src={logo} alt="logo" />
+                        <Button sx={{ p: 0 }}><img onClick={handleGoToHome} style={{ width: 65 }} src={logo} alt="logo" /></Button>
                         <div className="titleLogo">
                             <Box>
                                 <Typography sx={{ mt: 1, ml: 3 }} variant="h5" component="div">

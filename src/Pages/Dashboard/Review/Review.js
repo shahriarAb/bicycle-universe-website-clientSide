@@ -7,6 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 const Review = () => {
     const { user } = useAuth()
     const [value, setValue] = useState(0);
+    document.title = "Write a Review - Bicycle Universe"
 
     const initialReview = { name: user.displayName, reviewText: '', profession: 'cyclist' }
     const [review, setReview] = useState(initialReview);

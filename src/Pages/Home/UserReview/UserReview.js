@@ -12,12 +12,12 @@ const UserReview = () => {
 
     return (
         <Container sx={{ mt: 6 }}>
-            <Typography sx={{ mb: 6, fontWeight: 600, color: '#ffa600' }} variant="h5">
+            <Typography sx={{ mb: 6, fontWeight: 600, color: '#ffa600' }} variant="h5" data-aos="fade-down" data-aos-duration="1000">
                 Happy Client Says
             </Typography>
             <Grid container spacing={2}>
                 {
-                    reviews.map(review => <Grid key={review._id} item xs={12} md={4}>
+                    reviews.map(review => <Grid key={review._id} item xs={12} md={4} data-aos="fade-up">
                         <Card sx={{ minWidth: 275, boxShadow: 5 }}>
                             <CardContent>
                                 <Typography variant="body" color="text.secondary" component="div">

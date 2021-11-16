@@ -9,6 +9,7 @@ const Login = () => {
     const { user, authError, loginUser, signInWithGoogle, isLoading } = useAuth();
     const location = useLocation();
     const history = useHistory();
+    document.title = "Login - Bicycle Universe"
 
     const handleOnBlur = e => {
         const field = e.target.name;

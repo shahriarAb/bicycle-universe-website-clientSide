@@ -18,9 +18,9 @@ const Bicycle = props => {
 
     return (
         <Grid item xs={12} md={4}>
-            <Card sx={{ boxShadow: 4 }}>
-                <img width="100%" height="280" src={img} alt="" />
-                <CardContent>
+            <Card sx={{ boxShadow: 4 }} data-aos="fade-up">
+                <img data-aos="fade-up" width="100%" height="280" src={img} alt="" />
+                <CardContent data-aos="fade-left">
                     <Typography sx={{ fontWeight: 700 }} gutterBottom variant="h5" component="div">
                         {name.slice(0, 20)}
                     </Typography>
@@ -31,7 +31,7 @@ const Bicycle = props => {
                         Price: BDT{price}
                     </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions data-aos="fade-right" data-aos-offset="20">
                     <Button onClick={handleDetails} sx={{ px: 6, fontWeight: 700 }} variant="contained" color="warning">Buy Now</Button>
                     {props.children}
                 </CardActions>

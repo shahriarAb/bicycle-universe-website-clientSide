@@ -4,7 +4,8 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 
 const AddAProduct = () => {
-    const [productInfo, setProductInfo] = useState({})
+    const [productInfo, setProductInfo] = useState({});
+    document.title = "Add Products - Bicycle Universe"
 
     const handleOnBlur = e => {
         const field = e.target.name;

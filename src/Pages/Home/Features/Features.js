@@ -8,17 +8,17 @@ import feature3 from '../../../images/feature3.jpg';
 const Features = () => {
     return (
         <Box sx={{ mt: 3 }}>
-            <Typography sx={{ mb: 2, fontWeight: 700, color: '#ffa600' }} variant="h4">
+            <Typography sx={{ mb: 2, fontWeight: 700, color: '#ffa600' }} variant="h4" data-aos="fade-down">
                 OUR EXCLUSIVE SHOPS
             </Typography>
             <Grid container spacing={0}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} data-aos="fade-up">
                     <Button><img width='100%' src={feature1} alt="" /></Button>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} data-aos="fade-down">
                     <Button><img width='100%' src={feature2} alt="" /></Button>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={4} data-aos="fade-up">
                     <Button><img width='100%' src={feature3} alt="" /></Button>
                 </Grid>
             </Grid>

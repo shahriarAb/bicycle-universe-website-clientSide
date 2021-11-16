@@ -19,6 +19,7 @@ const BicycleDetails = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [orderSuccess, setOrderSuccess] = React.useState(false);
+    document.title = "Bicycle Details - Bicycle Universe"
 
     useEffect(() => {
         setIsLoading(true)

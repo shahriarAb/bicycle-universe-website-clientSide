@@ -1,0 +1,12 @@
+@media only screen and (max-width: 688px){
+    .newsLetter{
+        margin-bottom: 180px;
+    }
+    .latestUpdate{
+        margin-left: 0;
+    }
+    .searchBox{
+        margin-top: 25px;
+    }
+
+}

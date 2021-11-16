@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    document.title = "Manage All Orders - Bicycle Universe"
 
     useEffect(() => {
         fetch('https://salty-headland-52267.herokuapp.com/orders')

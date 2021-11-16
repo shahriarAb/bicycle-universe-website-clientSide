@@ -10,6 +10,7 @@ const AllCollection = () => {
     const [bicycles, setBicycles] = useState([]);
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
+    document.title = "All Collections - Bicycle Universe"
 
     useEffect(() => {
         setIsLoading(true);
@@ -36,7 +37,7 @@ const AllCollection = () => {
     return (
         <div className="App">
             <Header />
-            <Container sx={{ mt: 3 }}>
+            <Container sx={{ mt: 3, mb: 10 }}>
                 <Typography sx={{ mb: 5, fontWeight: 700, color: '#ffa600', textAlign: 'left' }} variant="h4">
                     Our Full Collection
                 </Typography>

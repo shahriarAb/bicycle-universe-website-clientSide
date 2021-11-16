@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
+    document.title = "Make Admin - Bicycle Universe"
 
     const handleOnBlur = e => {
         setEmail(e.target.value);

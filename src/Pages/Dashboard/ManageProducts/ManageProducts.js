@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 const ManageProducts = () => {
     const [allProduct, setAllProduct] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    document.title = "Manage Products - Bicycle Universe"
 
     useEffect(() => {
         fetch('https://salty-headland-52267.herokuapp.com/bicycles')

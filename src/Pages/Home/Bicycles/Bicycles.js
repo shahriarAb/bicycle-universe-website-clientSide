@@ -33,7 +33,7 @@ const Bicycles = () => {
     }
     return (
         <Container sx={{ mt: 7 }}>
-            <Typography sx={{ mb: 6, fontWeight: 700, color: '#ffa600' }} variant="h4">
+            <Typography sx={{ mb: 6, fontWeight: 700, color: '#ffa600' }} variant="h4" data-aos="fade-down" data-aos-offset="250">
                 OUR FEATURED BIKE COLLECTION
             </Typography>
             <Grid container spacing={3}>

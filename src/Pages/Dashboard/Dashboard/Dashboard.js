@@ -35,6 +35,7 @@ const Dashboard = (props) => {
     const { admin, logOut } = useAuth();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
+    document.title = "Dashboard - Bicycle Universe"
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -139,6 +140,7 @@ const Dashboard = (props) => {
             >
                 <Toolbar />
                 <Switch>
+                    {/* normal user routes  */}
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
                     </Route>
@@ -151,6 +153,7 @@ const Dashboard = (props) => {
                     <Route exact path={`${path}/review`}>
                         <Review></Review>
                     </Route>
+                    {/* admin special route */}
                     <AdminRoute exact path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>

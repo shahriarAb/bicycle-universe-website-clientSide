@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 
 const NotFound = () => {
+    document.title = "Not Found - Bicycle Universe"
     return (
         <Box sx={{ my: 20, textAlign: 'center' }}>
             <Typography sx={{ color: 'red', fontWeight: 800 }} variant="h3">
@@ -12,7 +13,7 @@ const NotFound = () => {
                 Nothing found here?!?
             </Typography>
             <Typography variant="p">
-                Go back back and find the correct path.
+                Go back and find the correct path.
             </Typography>
             <br />
             <Button sx={{ mt: 3, px: 5 }} variant="contained" color="error" onClick={() => window.history.back()}>Back</Button>
