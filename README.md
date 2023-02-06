@@ -14,5 +14,6 @@ To enjoy live view of this project go to [this link](https://bicycle-universe-a0
 - On here i used nested routes to go there pages.
 - You can manage your order also post a review of this which can be seen dynamically on home page review section.
 - An admin can see different routs which is not available on a client page.
+- To visit admin dashboard. Use, email: admin@admin.com pass:123456
 - Admin can make a new admin, manage all product, all orders, and also can update a products status which is dynamically updated on clients pages.
 - Firebase authentication is used here. New user can use every routes by register or can be used by google sign in.
